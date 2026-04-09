@@ -653,67 +653,65 @@
           </div>
         </div>
 
-        <!-- Right: Parade Form -->
-        <div class="reveal">
-          <div class="parade-form-card">
-            <h3>Parade Registration</h3>
-            <p class="form-lead">Reserve your spot in the parade. Space is limited — register early! We'll confirm via email.</p>
+   <!-- Right: Parade Form -->
+<div class="reveal">
+  <div class="parade-form-card">
+    <h3>Parade Registration</h3>
+    <p class="form-lead">Reserve your spot in the parade. Space is limited — register early! We'll confirm via email.</p>
 
-            <!-- === UPDATE: REPLACE WITH YOUR PARADE FORM LINK OR WIRE TO BACKEND === -->
-            <div class="form-group">
-              <label for="p-org">Organization / Group Name *</label>
-              <input type="text" id="p-org" placeholder="Your group name" />
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="p-contact">Contact Person *</label>
-                <input type="text" id="p-contact" placeholder="Full name" />
-              </div>
-              <div class="form-group">
-                <label for="p-phone">Phone Number *</label>
-                <input type="tel" id="p-phone" placeholder="(708) 555-0000" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="p-email">Email Address *</label>
-              <input type="email" id="p-email" placeholder="contact@yourorg.org" />
-            </div>
-            <div class="form-group">
-              <label for="p-type">Participation Type *</label>
-              <select id="p-type">
-                <option value="">-- Select type --</option>
-                <option>Organization / Nonprofit</option>
-                <option>School / Youth Group</option>
-                <option>Dance / Drill Team</option>
-                <option>Marching Band</option>
-                <option>Cultural Performance Group</option>
-                <option>Faith Organization</option>
-                <option>Business</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="p-size">Group Size *</label>
-                <input type="text" id="p-size" placeholder="e.g. 25 people" />
-              </div>
-              <div class="form-group">
-                <label for="p-vehicle">Vehicle / Float?</label>
-                <select id="p-vehicle">
-                  <option value="">-- Select --</option>
-                  <option>No vehicle</option>
-                  <option>Car / SUV</option>
-                  <option>Truck / Van</option>
-                  <option>Decorated Float</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="p-notes">Additional Details</label>
-              <textarea id="p-notes" placeholder="Music, equipment, special needs, questions..."></textarea>
-            </div>
+    <div class="form-group">
+      <label for="p-org">Organization / Group Name *</label>
+      <input type="text" id="p-org" placeholder="Your group name" />
+    </div>
 
+    <div class="form-row">
+      <div class="form-group">
+        <label for="p-contact">Contact Person *</label>
+        <input type="text" id="p-contact" placeholder="Full name" />
+      </div>
+      <div class="form-group">
+        <label for="p-phone">Phone Number *</label>
+        <input type="tel" id="p-phone" placeholder="(708) 555-0000" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="p-email">Email Address *</label>
+      <input type="email" id="p-email" placeholder="contact@yourorg.org" />
+    </div>
+
+    <div class="form-group">
+      <label for="p-type">Participation Type *</label>
+      <select id="p-type">
+        <option value="">-- Select type --</option>
+        <option>Organization / Nonprofit</option>
+        <option>School / Youth Group</option>
+        <option>Dance / Drill Team</option>
+        <option>Marching Band</option>
+        <option>Cultural Performance Group</option>
+        <option>Faith Organization</option>
+        <option>Business</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="p-size">Group Size *</label>
+      <input type="text" id="p-size" placeholder="e.g. 25 people" />
+    </div>
+
+    <div class="form-group">
+      <label for="p-notes">Additional Details</label>
+      <textarea id="p-notes" placeholder="Music, equipment, special needs, questions..."></textarea>
+    </div>
+
+    <button class="btn btn-gold" style="width:100%;justify-content:center;" onclick="handleParadeSubmit()">
+      Register for the Parade
+    </button>
+
+    <p class="form-note">We'll confirm your parade registration by email. Thank you for joining the celebration!</p>
+  </div>
+</div>
             <button class="btn btn-gold" style="width:100%;justify-content:center;" onclick="handleParadeSubmit()">
               Register for the Parade
             </button>
