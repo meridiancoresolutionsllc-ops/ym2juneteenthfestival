@@ -169,15 +169,18 @@
       width: 100%;
     }
 
-    .hero-logo-wrap {
-      margin-bottom: 36px;
-    }
-    .hero-logo-img {
-      width: 220px;
-      height: 220px;
-      object-fit: contain;
-      border-radius: 16px;
-    }
+.hero-logo-wrap {
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-logo-img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 16px;
+}
 
     .hero-tag {
       display: inline-flex; align-items: center; gap: 10px;
@@ -474,10 +477,9 @@
   <div class="container">
     <div class="hero-inner">
 
-      <div class="hero-logo-wrap">
-        <!-- Hero Logo -->
-      <img src="images/hero.png" alt="Hero image">
-      </div>
+<div class="hero-logo-wrap">
+  <img src="images/hero.png" alt="Hero image" class="hero-logo">
+</div>
 
       <div class="hero-tag">
         <div class="hero-tag-dot"></div>
