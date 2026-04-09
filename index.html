@@ -1178,15 +1178,19 @@
   const scriptURL = "https://script.google.com/macros/s/AKfycbwERXVHugMzp1TFeDLd-p5mvoIVyuWuLACm2sGVtO6Eqoimz9Sb-pdbllGC_k0gCImD/exec";
 
   async function postFormData(payload) {
-    const response = await fetch(scriptURL, {
+    const body = new URLSearchParams();
+
+    for (const key in payload) {
+      body.append(key, payload[key]);
+    }
+
+    await fetch(scriptURL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
+      body: body,
+      mode: "no-cors"
     });
 
-    return await response.json();
+    return { result: "success" };
   }
 
   function setFormMessage(containerSelector, message, isSuccess = true) {
@@ -1236,24 +1240,19 @@
     clearFormMessage(".form-card");
 
     try {
-      const result = await postFormData(payload);
+      await postFormData(payload);
 
-      if (result.result === "success") {
-        document.getElementById("v-fname").value = "";
-        document.getElementById("v-lname").value = "";
-        document.getElementById("v-email").value = "";
-        document.getElementById("v-phone").value = "";
-        document.getElementById("v-role").value = "";
-        document.getElementById("v-age").value = "";
-        document.getElementById("v-shift").value = "";
-        document.getElementById("v-tsize").value = "";
-        document.getElementById("v-notes").value = "";
+      document.getElementById("v-fname").value = "";
+      document.getElementById("v-lname").value = "";
+      document.getElementById("v-email").value = "";
+      document.getElementById("v-phone").value = "";
+      document.getElementById("v-role").value = "";
+      document.getElementById("v-age").value = "";
+      document.getElementById("v-shift").value = "";
+      document.getElementById("v-tsize").value = "";
+      document.getElementById("v-notes").value = "";
 
-        setFormMessage(".form-card", "Thank you! Your volunteer application was submitted.");
-      } else {
-        setFormMessage(".form-card", "Something went wrong. Please try again.", false);
-        console.error(result.message);
-      }
+      setFormMessage(".form-card", "Thank you! Your volunteer application was submitted.");
     } catch (error) {
       setFormMessage(".form-card", "Submission failed. Please try again.", false);
       console.error(error);
@@ -1281,23 +1280,18 @@
     clearFormMessage(".vendor-form-card");
 
     try {
-      const result = await postFormData(payload);
+      await postFormData(payload);
 
-      if (result.result === "success") {
-        document.getElementById("vend-fname").value = "";
-        document.getElementById("vend-lname").value = "";
-        document.getElementById("vend-biz").value = "";
-        document.getElementById("vend-email").value = "";
-        document.getElementById("vend-phone").value = "";
-        document.getElementById("vend-type").value = "";
-        document.getElementById("vend-desc").value = "";
-        document.getElementById("vend-ig").value = "";
+      document.getElementById("vend-fname").value = "";
+      document.getElementById("vend-lname").value = "";
+      document.getElementById("vend-biz").value = "";
+      document.getElementById("vend-email").value = "";
+      document.getElementById("vend-phone").value = "";
+      document.getElementById("vend-type").value = "";
+      document.getElementById("vend-desc").value = "";
+      document.getElementById("vend-ig").value = "";
 
-        setFormMessage(".vendor-form-card", "Thank you! Your vendor interest form was submitted.");
-      } else {
-        setFormMessage(".vendor-form-card", "Something went wrong. Please try again.", false);
-        console.error(result.message);
-      }
+      setFormMessage(".vendor-form-card", "Thank you! Your vendor interest form was submitted.");
     } catch (error) {
       setFormMessage(".vendor-form-card", "Submission failed. Please try again.", false);
       console.error(error);
@@ -1324,22 +1318,17 @@
     clearFormMessage(".parade-form-card");
 
     try {
-      const result = await postFormData(payload);
+      await postFormData(payload);
 
-      if (result.result === "success") {
-        document.getElementById("p-org").value = "";
-        document.getElementById("p-contact").value = "";
-        document.getElementById("p-phone").value = "";
-        document.getElementById("p-email").value = "";
-        document.getElementById("p-type").value = "";
-        document.getElementById("p-size").value = "";
-        document.getElementById("p-notes").value = "";
+      document.getElementById("p-org").value = "";
+      document.getElementById("p-contact").value = "";
+      document.getElementById("p-phone").value = "";
+      document.getElementById("p-email").value = "";
+      document.getElementById("p-type").value = "";
+      document.getElementById("p-size").value = "";
+      document.getElementById("p-notes").value = "";
 
-        setFormMessage(".parade-form-card", "Thank you! Your parade registration was submitted.");
-      } else {
-        setFormMessage(".parade-form-card", "Something went wrong. Please try again.", false);
-        console.error(result.message);
-      }
+      setFormMessage(".parade-form-card", "Thank you! Your parade registration was submitted.");
     } catch (error) {
       setFormMessage(".parade-form-card", "Submission failed. Please try again.", false);
       console.error(error);
