@@ -1174,5 +1174,178 @@
   }
 </script>
 
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwERXVHugMzp1TFeDLd-p5mvoIVyuWuLACm2sGVtO6Eqoimz9Sb-pdbllGC_k0gCImD/exec";
+
+  async function postFormData(payload) {
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    return await response.json();
+  }
+
+  function setFormMessage(containerSelector, message, isSuccess = true) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    let msg = container.querySelector(".form-message");
+    if (!msg) {
+      msg = document.createElement("p");
+      msg.className = "form-message";
+      msg.style.marginTop = "14px";
+      msg.style.fontWeight = "600";
+      container.appendChild(msg);
+    }
+
+    msg.textContent = message;
+    msg.style.color = isSuccess ? "#1f7a1f" : "#b00020";
+  }
+
+  function clearFormMessage(containerSelector) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const msg = container.querySelector(".form-message");
+    if (msg) msg.textContent = "";
+  }
+
+  async function handleVolunteerSubmit() {
+    const payload = {
+      formType: "volunteer",
+      firstName: document.getElementById("v-fname").value.trim(),
+      lastName: document.getElementById("v-lname").value.trim(),
+      email: document.getElementById("v-email").value.trim(),
+      phone: document.getElementById("v-phone").value.trim(),
+      role: document.getElementById("v-role").value.trim(),
+      age15OrOlder: document.getElementById("v-age").value.trim(),
+      shift: document.getElementById("v-shift").value.trim(),
+      tshirtSize: document.getElementById("v-tsize").value.trim(),
+      notes: document.getElementById("v-notes").value.trim()
+    };
+
+    if (!payload.firstName || !payload.lastName || !payload.email || !payload.role) {
+      setFormMessage(".form-card", "Please complete all required volunteer fields.", false);
+      return;
+    }
+
+    clearFormMessage(".form-card");
+
+    try {
+      const result = await postFormData(payload);
+
+      if (result.result === "success") {
+        document.getElementById("v-fname").value = "";
+        document.getElementById("v-lname").value = "";
+        document.getElementById("v-email").value = "";
+        document.getElementById("v-phone").value = "";
+        document.getElementById("v-role").value = "";
+        document.getElementById("v-age").value = "";
+        document.getElementById("v-shift").value = "";
+        document.getElementById("v-tsize").value = "";
+        document.getElementById("v-notes").value = "";
+
+        setFormMessage(".form-card", "Thank you! Your volunteer application was submitted.");
+      } else {
+        setFormMessage(".form-card", "Something went wrong. Please try again.", false);
+        console.error(result.message);
+      }
+    } catch (error) {
+      setFormMessage(".form-card", "Submission failed. Please try again.", false);
+      console.error(error);
+    }
+  }
+
+  async function handleVendorSubmit() {
+    const payload = {
+      formType: "vendor",
+      firstName: document.getElementById("vend-fname").value.trim(),
+      lastName: document.getElementById("vend-lname").value.trim(),
+      businessName: document.getElementById("vend-biz").value.trim(),
+      email: document.getElementById("vend-email").value.trim(),
+      phone: document.getElementById("vend-phone").value.trim(),
+      vendorType: document.getElementById("vend-type").value.trim(),
+      description: document.getElementById("vend-desc").value.trim(),
+      instagram: document.getElementById("vend-ig").value.trim()
+    };
+
+    if (!payload.firstName || !payload.lastName || !payload.businessName || !payload.email || !payload.phone || !payload.vendorType || !payload.description) {
+      setFormMessage(".vendor-form-card", "Please complete all required vendor fields.", false);
+      return;
+    }
+
+    clearFormMessage(".vendor-form-card");
+
+    try {
+      const result = await postFormData(payload);
+
+      if (result.result === "success") {
+        document.getElementById("vend-fname").value = "";
+        document.getElementById("vend-lname").value = "";
+        document.getElementById("vend-biz").value = "";
+        document.getElementById("vend-email").value = "";
+        document.getElementById("vend-phone").value = "";
+        document.getElementById("vend-type").value = "";
+        document.getElementById("vend-desc").value = "";
+        document.getElementById("vend-ig").value = "";
+
+        setFormMessage(".vendor-form-card", "Thank you! Your vendor interest form was submitted.");
+      } else {
+        setFormMessage(".vendor-form-card", "Something went wrong. Please try again.", false);
+        console.error(result.message);
+      }
+    } catch (error) {
+      setFormMessage(".vendor-form-card", "Submission failed. Please try again.", false);
+      console.error(error);
+    }
+  }
+
+  async function handleParadeSubmit() {
+    const payload = {
+      formType: "parade",
+      organizationName: document.getElementById("p-org").value.trim(),
+      contactPerson: document.getElementById("p-contact").value.trim(),
+      phone: document.getElementById("p-phone").value.trim(),
+      email: document.getElementById("p-email").value.trim(),
+      participationType: document.getElementById("p-type").value.trim(),
+      groupSize: document.getElementById("p-size").value.trim(),
+      additionalDetails: document.getElementById("p-notes").value.trim()
+    };
+
+    if (!payload.organizationName || !payload.contactPerson || !payload.phone || !payload.email || !payload.participationType || !payload.groupSize) {
+      setFormMessage(".parade-form-card", "Please complete all required parade fields.", false);
+      return;
+    }
+
+    clearFormMessage(".parade-form-card");
+
+    try {
+      const result = await postFormData(payload);
+
+      if (result.result === "success") {
+        document.getElementById("p-org").value = "";
+        document.getElementById("p-contact").value = "";
+        document.getElementById("p-phone").value = "";
+        document.getElementById("p-email").value = "";
+        document.getElementById("p-type").value = "";
+        document.getElementById("p-size").value = "";
+        document.getElementById("p-notes").value = "";
+
+        setFormMessage(".parade-form-card", "Thank you! Your parade registration was submitted.");
+      } else {
+        setFormMessage(".parade-form-card", "Something went wrong. Please try again.", false);
+        console.error(result.message);
+      }
+    } catch (error) {
+      setFormMessage(".parade-form-card", "Submission failed. Please try again.", false);
+      console.error(error);
+    }
+  }
+</script>
+  
 </body>
 </html>
