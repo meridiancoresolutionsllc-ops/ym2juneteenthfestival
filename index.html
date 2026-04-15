@@ -336,7 +336,12 @@
     /* VOLUNTEER */
     #volunteer { background: var(--offwhite); padding: 100px 0; }
 
-    .vol-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .vol-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
 
     .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 30px; }
     .role-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 18px; transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s; }
@@ -490,7 +495,7 @@
       <div class="hero-tag">
         <div class="hero-tag-dot"></div>
         <!-- === UPDATE YEAR / LOCATION TAG === -->
-        <span>Juneteenth 2026 &nbsp;·&nbsp; South Suburbs, IL</span>
+        <span>Juneteenth 2026 &nbsp;·&nbsp; Flossmoor, IL</span>
       </div>
 
       <h1 class="hero-headline">
@@ -530,7 +535,7 @@
           <div class="event-card-icon">📍</div>
           <div>
             <div class="event-card-label">Location</div>
-            <div class="event-card-val">TBD — South Suburbs, IL</div>
+            <div class="event-card-val">Flossmoor, IL</div>
           </div>
         </div>
       </div>
@@ -657,7 +662,7 @@
 <div class="reveal">
   <div class="parade-form-card">
     <h3>Parade Registration</h3>
-    <p class="form-lead">Reserve your spot in the parade. Space is limited — register early! We'll confirm via email.</p>
+    <p class="form-lead">To participate in the parade, there is a $50 participation fee that covers up to 30 people in your parade group. This fee helps cover the costs of permits, security, and other event expenses. Reserve your spot in the parade. Space is limited — register early! We'll confirm via email.</p>
 
     <div class="form-group">
       <label for="p-org">Organization / Group Name *</label>
@@ -681,6 +686,11 @@
     </div>
 
     <div class="form-group">
+      <label for="p-website">Business / Organization Website</label>
+      <input type="text" id="p-website" placeholder="https://yourorg.org" />
+    </div>
+
+    <div class="form-group">
       <label for="p-type">Participation Type *</label>
       <select id="p-type">
         <option value="">-- Select type --</option>
@@ -696,7 +706,7 @@
     </div>
 
     <div class="form-group">
-      <label for="p-size">Group Size *</label>
+      <label for="p-size">Group Size (No More than 30 people)*</label>
       <input type="text" id="p-size" placeholder="e.g. 25 people" />
     </div>
 
@@ -709,14 +719,10 @@
       Register for the Parade
     </button>
 
-    <p class="form-note">We'll confirm your parade registration by email. Thank you for joining the celebration!</p>
+    <p class="form-note">By registering, I understand that this is a walking only parade and vehicles of any kind will not be permitted. We'll confirm your parade registration by email. Thank you for joining the celebration!</p>
   </div>
 </div>
-            <button class="btn btn-gold" style="width:100%;justify-content:center;" onclick="handleParadeSubmit()">
-              Register for the Parade
-            </button>
             <!-- === UPDATE REGISTRATION DEADLINE === -->
-            <p class="form-note-light">Confirmation sent by email. Deadline: [Registration Deadline TBD]</p>
           </div>
         </div>
 
@@ -749,17 +755,22 @@
           <div class="role-card reveal">
             <div class="role-icon">🔧</div>
             <div class="role-title">Set Up Crew</div>
-            <div class="role-desc">Help prepare the venue, stages, tents, and vendor areas before the celebration begins.</div>
+            <div class="role-desc">Assist with setting up tables, chairs, tents, and other event materials.</div>
+          </div>
+          <div class="role-card reveal">
+            <div class="role-icon">🧹</div>
+            <div class="role-title">Cleaning Crew</div>
+            <div class="role-desc">Help keep the event space clean by managing trash, recycling, and tidying high-traffic areas.</div>
           </div>
           <div class="role-card reveal">
             <div class="role-icon">🎪</div>
-            <div class="role-title">Activities Attendant</div>
-            <div class="role-desc">Assist with block party activities, games, and keep the energy alive during the 11 AM–2 PM party.</div>
+            <div class="role-title">Activity Attendant</div>
+            <div class="role-desc">Supervise inflatable attractions and help ensure safe play for children and families.</div>
           </div>
           <div class="role-card reveal">
             <div class="role-icon">🧹</div>
             <div class="role-title">Breakdown Crew</div>
-            <div class="role-desc">Help break down, clean up, and restore the venue once the celebration wraps up.</div>
+            <div class="role-desc">Assist with event wrap-up by helping to take down tents, pack up materials, and ensure the space is clean and organized after the celebration.</div>
           </div>
         </div>
 
@@ -771,82 +782,27 @@
         </div>
       </div>
 
-      <!-- Right: Volunteer Form -->
+      <!-- Right: Volunteer Button -->
       <div class="reveal">
-        <div class="form-card">
+        <div class="form-card" style="display:flex;flex-direction:column;justify-content:center;min-height:100%;">
           <h3>Volunteer Sign-Up</h3>
-          <p class="form-lead">Fill out the form and we'll follow up with everything you need to know before June 19th.</p>
+          <p class="form-lead">
+            Ready to support the Juneteenth celebration? Click below to sign up to volunteer.
+          </p>
 
-          <!-- === UPDATE: REPLACE WITH YOUR VOLUNTEER FORM LINK OR BACKEND === -->
-          <div class="form-row">
-            <div class="form-group">
-              <label for="v-fname">First Name *</label>
-              <input type="text" id="v-fname" placeholder="First" />
-            </div>
-            <div class="form-group">
-              <label for="v-lname">Last Name *</label>
-              <input type="text" id="v-lname" placeholder="Last" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="v-email">Email Address *</label>
-            <input type="email" id="v-email" placeholder="you@example.com" />
-          </div>
-          <div class="form-group">
-            <label for="v-phone">Phone Number</label>
-            <input type="tel" id="v-phone" placeholder="(708) 555-0000" />
-          </div>
-          <div class="form-group">
-            <label for="v-role">Preferred Role *</label>
-            <select id="v-role">
-              <option value="">-- Select a role --</option>
-              <option>Parade Marshal</option>
-              <option>Set Up Crew</option>
-              <option>Activities Attendant</option>
-              <option>Breakdown Crew</option>
-              <option>Open to Anything</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="v-age">Are you 15 or older?</label>
-            <select id="v-age">
-              <option value="">-- Select --</option>
-              <option>Yes, I am 15 or older</option>
-              <option>No, I am under 15</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="v-shift">What shift do you prefer?</label>
-            <select id="v-shift">
-              <option value="">-- Select --</option>
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-            </select>
-          </div>
-           <div class="form-group">
-            <label for="v-tsize">T-Shirt Size</label>
-            <select id="v-tsize">
-              <option value="">-- Select --</option>
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="v-notes">Anything else we should know?</label>
-            <textarea id="v-notes" placeholder="Skills, availability, questions, dietary restrictions..."></textarea>
-          </div>
+          <a
+            href="https://dash.pointapp.org/events/642933"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-green"
+            style="width:100%;justify-content:center;"
+          >
+            Sign Up to Volunteer
+          </a>
 
-          <button class="btn btn-green" style="width:100%;justify-content:center;" onclick="handleVolunteerSubmit()">
-            Submit Volunteer Application
-          </button>
-          <p class="form-note">We'll reach out via email with next steps. Thank you! 🙏</p>
+          <p class="form-note">You’ll be taken to our volunteer registration page.</p>
         </div>
       </div>
-
-    </div>
-  </div>
 </section>
 
 <div class="section-divider"></div>
@@ -950,7 +906,7 @@
           <button class="btn btn-red" style="width:100%;justify-content:center;" onclick="handleVendorSubmit()">
             Submit Vendor Interest
           </button>
-          <p class="form-note">We'll follow up with availability, fees, and next steps. Space is limited!</p>
+          <p class="form-note">Submitting this form does not guarantee acceptance. Vendors will be selected based on availability and fit. We'll follow up with availability, fees, and next steps. Space is limited!</p>
         </div>
       </div>
 
@@ -987,7 +943,7 @@
             <div class="contact-card-icon gold">📍</div>
             <div class="contact-card-info">
               <h4>Event Location</h4>
-              <p>Location TBD — South Suburbs, Illinois. Check our Instagram for updates!</p>
+              <p>Location — Flossmoor, IL. Check our Instagram for updates!</p>
             </div>
           </div>
           <!-- Instagram -->
@@ -1094,7 +1050,7 @@
             📅 Friday, June 19, 2026<br/>
             🎺 Parade 10–11 AM<br/>
             🎉 Block Party 11 AM–2 PM<br/>
-            📍 Location TBD — South Suburbs, IL
+            📍 Location — Flossmoor, IL
           </p>
         </div>
       </div>
