@@ -1255,41 +1255,43 @@
   }
 
   async function handleParadeSubmit() {
-    const payload = {
-      formType: "parade",
-      organizationName: document.getElementById("p-org").value.trim(),
-      contactPerson: document.getElementById("p-contact").value.trim(),
-      phone: document.getElementById("p-phone").value.trim(),
-      email: document.getElementById("p-email").value.trim(),
-      participationType: document.getElementById("p-type").value.trim(),
-      groupSize: document.getElementById("p-size").value.trim(),
-      additionalDetails: document.getElementById("p-notes").value.trim()
-    };
+  const payload = {
+    formType: "parade",
+    organizationName: document.getElementById("p-org").value.trim(),
+    contactPerson: document.getElementById("p-contact").value.trim(),
+    phone: document.getElementById("p-phone").value.trim(),
+    email: document.getElementById("p-email").value.trim(),
+    website: document.getElementById("p-website").value.trim(),
+    participationType: document.getElementById("p-type").value.trim(),
+    groupSize: document.getElementById("p-size").value.trim(),
+    additionalDetails: document.getElementById("p-notes").value.trim()
+  };
 
-    if (!payload.organizationName || !payload.contactPerson || !payload.phone || !payload.email || !payload.participationType || !payload.groupSize) {
-      setFormMessage(".parade-form-card", "Please complete all required parade fields.", false);
-      return;
-    }
-
-    clearFormMessage(".parade-form-card");
-
-    try {
-      await postFormData(payload);
-
-      document.getElementById("p-org").value = "";
-      document.getElementById("p-contact").value = "";
-      document.getElementById("p-phone").value = "";
-      document.getElementById("p-email").value = "";
-      document.getElementById("p-type").value = "";
-      document.getElementById("p-size").value = "";
-      document.getElementById("p-notes").value = "";
-
-      setFormMessage(".parade-form-card", "Thank you! Your parade registration was submitted.");
-    } catch (error) {
-      setFormMessage(".parade-form-card", "Submission failed. Please try again.", false);
-      console.error(error);
-    }
+  if (!payload.organizationName || !payload.contactPerson || !payload.phone || !payload.email || !payload.participationType || !payload.groupSize) {
+    setFormMessage(".parade-form-card", "Please complete all required parade fields.", false);
+    return;
   }
+
+  clearFormMessage(".parade-form-card");
+
+  try {
+    await postFormData(payload);
+
+    document.getElementById("p-org").value = "";
+    document.getElementById("p-contact").value = "";
+    document.getElementById("p-phone").value = "";
+    document.getElementById("p-email").value = "";
+    document.getElementById("p-website").value = "";
+    document.getElementById("p-type").value = "";
+    document.getElementById("p-size").value = "";
+    document.getElementById("p-notes").value = "";
+
+    setFormMessage(".parade-form-card", "Thank you! Your parade registration was submitted.");
+  } catch (error) {
+    setFormMessage(".parade-form-card", "Submission failed. Please try again.", false);
+    console.error(error);
+  }
+}
 </script>
   
 </body>
