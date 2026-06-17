@@ -239,6 +239,32 @@
 
     .hero-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--red) 0%, var(--red) 33.3%, #222 33.3%, #222 66.6%, var(--green) 66.6%, var(--green) 100%); }
 
+    /* EVENT DETAILS */
+    #event-details { background: #fff; padding: 100px 0; }
+    .ed-intro { margin-bottom: 56px; }
+    .ed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    .ed-card { background: var(--offwhite); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 28px; }
+    .ed-card h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; margin-bottom: 16px; color: var(--black); }
+    .ed-schedule-row { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--border); }
+    .ed-schedule-row:last-child { border-bottom: none; }
+    .ed-schedule-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .ed-schedule-name { font-weight: 700; font-size: 0.95rem; color: var(--black); margin-bottom: 2px; }
+    .ed-schedule-time { font-size: 0.86rem; color: var(--warm-gray); }
+    .ed-loc-line { font-size: 0.92rem; color: var(--warm-gray); line-height: 1.7; margin-top: 4px; }
+    .ed-loc-line strong { color: var(--black); }
+    .ed-full { background: var(--offwhite); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 28px; margin-bottom: 22px; }
+    .ed-full h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 900; margin-bottom: 14px; color: var(--black); }
+    .ed-full p { font-size: 0.94rem; color: var(--warm-gray); line-height: 1.85; }
+    .ed-full ul { margin: 10px 0 0 0; padding-left: 0; list-style: none; }
+    .ed-full ul li { font-size: 0.92rem; color: var(--warm-gray); line-height: 1.7; padding-left: 22px; position: relative; margin-bottom: 6px; }
+    .ed-full ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold-dark); font-weight: 700; }
+    .ed-expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .ed-expect-item { display: flex; align-items: flex-start; gap: 11px; padding: 14px 16px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .ed-expect-icon { font-size: 1.15rem; flex-shrink: 0; }
+    .ed-expect-text { font-size: 0.88rem; font-weight: 600; color: var(--black); line-height: 1.4; }
+    .ed-closing { text-align: center; margin-top: 36px; }
+    .ed-closing p { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--green-dark); }
+
     /* ABOUT */
     #about { background: #fff; padding: 100px 0; }
 
@@ -428,7 +454,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      .about-grid, .parade-layout, .vol-layout, .vendor-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+      .about-grid, .parade-layout, .vol-layout, .vendor-layout, .contact-layout, .ed-grid, .ed-expect-grid { grid-template-columns: 1fr; gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
@@ -441,6 +467,7 @@
       .hero-actions { flex-direction: column; }
       .hero-actions .btn { justify-content: center; }
       .hero-logo-img { width: 160px; height: 160px; }
+      .ed-grid, .ed-expect-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -458,6 +485,7 @@
     </a>
 
     <ul class="nav-links">
+      <li><a href="#event-details">Event Info</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#parade">Parade</a></li>
       <li><a href="#volunteer">Volunteer</a></li>
@@ -473,6 +501,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#event-details" onclick="closeMenu()">Event Info</a>
   <a href="#about"     onclick="closeMenu()">About</a>
   <a href="#parade"    onclick="closeMenu()">Parade</a>
   <a href="#volunteer" onclick="closeMenu()">Volunteer</a>
@@ -553,6 +582,106 @@
 
 <div class="section-divider"></div>
 
+<!-- EVENT DETAILS -->
+<section id="event-details">
+  <div class="container">
+
+    <div class="ed-intro">
+      <span class="section-label reveal">The Details</span>
+      <h2 class="section-title reveal">You Matter 2 Juneteenth<br/>Parade &amp; Block Party</h2>
+      <p class="section-body reveal" style="margin-bottom:6px;">
+        <strong style="color:var(--black);">Friday, June 19, 2026 | Flossmoor, Illinois</strong>
+      </p>
+      <p class="section-body reveal">
+        Join us for a day of celebration, culture, and community at the You Matter 2 Juneteenth Parade &amp; Block Party! Bring your family and friends as we honor Juneteenth with a lively parade, music, food, activities, and fun for all ages.
+      </p>
+    </div>
+
+    <div class="ed-grid">
+      <div class="ed-card reveal">
+        <h3>Event Schedule</h3>
+        <div class="ed-schedule-row">
+          <div class="ed-schedule-icon">🎺</div>
+          <div>
+            <div class="ed-schedule-name">Juneteenth Parade</div>
+            <div class="ed-schedule-time">10:00 AM – 11:00 AM</div>
+          </div>
+        </div>
+        <div class="ed-schedule-row">
+          <div class="ed-schedule-icon">🎉</div>
+          <div>
+            <div class="ed-schedule-name">Juneteenth Block Party</div>
+            <div class="ed-schedule-time">11:00 AM – 2:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ed-card reveal">
+        <h3>Block Party Location</h3>
+        <div class="ed-loc-line">
+          <strong>Flossmoor South Commuter Lot</strong><br/>
+          2616 Sterling Ave<br/>
+          Flossmoor, IL 60422
+        </div>
+      </div>
+    </div>
+
+    <div class="ed-full reveal">
+      <h3>Parade Route</h3>
+      <p>
+        The parade will begin at <strong style="color:var(--black);">Infant Jesus of Prague (1101 Douglas Ave, Flossmoor)</strong> and proceed down Douglas Avenue, continue around Park Avenue, travel through downtown Flossmoor via Sterling Avenue, and conclude at the Flossmoor South Commuter Lot (2616 Sterling Ave), where the Block Party will take place.
+      </p>
+    </div>
+
+    <div class="ed-full reveal">
+      <h3>Parking Information</h3>
+      <p>Free parking is available throughout:</p>
+      <ul>
+        <li>Downtown Flossmoor public parking areas</li>
+        <li>Neighborhood street parking surrounding the event area</li>
+      </ul>
+      <p style="margin-top:10px;">Please follow posted signs and any directions from event staff and public safety personnel.</p>
+    </div>
+
+    <div class="ed-full reveal">
+      <h3>What to Expect</h3>
+      <div class="ed-expect-grid">
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🎶</div>
+          <div class="ed-expect-text">Live music and entertainment</div>
+        </div>
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🍴</div>
+          <div class="ed-expect-text">Food trucks and local vendors</div>
+        </div>
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🏰</div>
+          <div class="ed-expect-text">Inflatables and family activities</div>
+        </div>
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🎮</div>
+          <div class="ed-expect-text">Games and community engagement activities</div>
+        </div>
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🛍️</div>
+          <div class="ed-expect-text">You Matter 2 merchandise and information booth</div>
+        </div>
+        <div class="ed-expect-item">
+          <div class="ed-expect-icon">🌟</div>
+          <div class="ed-expect-text">Opportunities to support You Matter 2's youth programs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ed-closing reveal">
+      <p>We can't wait to celebrate freedom, culture, and community with you. See you on June 19th!</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
@@ -565,7 +694,7 @@
 
         <div class="about-story">
           <p class="reveal">
-          In 2020, amid heightened racial tensions following the deaths of <strong></strong>George Floyd, Breonna Taylor, and Ahmaud Arbery,</strong> South Suburban communities came together—even during the COVID-19 pandemic—to protest injustice and support the Black community. Inspired by this moment and the growing national recognition of Juneteenth, <strong>You Matter 2 Founder & CEO Destiny Watson</strong> launched the inaugural 2021 Homewood-Flossmoor Juneteenth Festival to celebrate Black culture, educate the community, and uplift Black-owned businesses.          </p>
+          In 2020, amid heightened racial tensions following the deaths of <strong>George Floyd, Breonna Taylor, and Ahmaud Arbery,</strong> South Suburban communities came together—even during the COVID-19 pandemic—to protest injustice and support the Black community. Inspired by this moment and the growing national recognition of Juneteenth, <strong>You Matter 2 Founder & CEO Destiny Watson</strong> launched the inaugural 2021 Homewood-Flossmoor Juneteenth Festival to celebrate Black culture, educate the community, and uplift Black-owned businesses.          </p>
           <p class="reveal">
           With support from partners and sponsors, the first festival welcomed over 2,000 attendees, 83 Black-owned vendors, and 15 entertainers. Since then, it has expanded to include a parade and the Mr. and Miss HF Juneteenth Royal Court, becoming the largest Juneteenth celebration in the Chicago Southland. The festival continues to honor history, celebrate Black joy, and create a lasting space rooted in pride, culture, and community.          </p>
         </div>
@@ -646,7 +775,6 @@
                 <h4>Performers &amp; Artists</h4>
                 <p>Dancers, steppers, drummers, and cultural performers — bring your art to the streets.</p>
               </div>
-            </div
             </div>
           </div>
 
@@ -658,7 +786,8 @@
           </div>
         </div>
 
-   <!-- Right: Parade Form -->
+   <!-- Right: Parade Form (hidden for now — remove the comment wrapper below to re-enable) -->
+<!--
 <div class="reveal">
   <div class="parade-form-card">
     <h3>Parade Registration</h3>
@@ -722,6 +851,7 @@
     <p class="form-note">By registering, I understand that this is a walking only parade and vehicles of any kind will not be permitted. We'll confirm your parade registration by email. Thank you for joining the celebration!</p>
   </div>
 </div>
+-->
             <!-- === UPDATE REGISTRATION DEADLINE === -->
           </div>
         </div>
@@ -782,7 +912,8 @@
         </div>
       </div>
 
-      <!-- Right: Volunteer Button -->
+      <!-- Right: Volunteer Button (hidden for now — remove the comment wrapper below to re-enable) -->
+      <!--
       <div class="reveal">
         <div class="form-card" style="display:flex;flex-direction:column;justify-content:center;min-height:100%;">
           <h3>Volunteer Sign-Up</h3>
@@ -803,6 +934,7 @@
           <p class="form-note">You’ll be taken to our volunteer registration page.</p>
         </div>
       </div>
+      -->
 </section>
 
 <div class="section-divider"></div>
@@ -852,13 +984,14 @@
         </div>
       </div>
 
-      <!-- Right: Vendor Form -->
+      <!-- Right: Vendor Form (hidden for now — remove the comment wrapper below to re-enable) -->
+      <!--
       <div class="reveal">
         <div class="vendor-form-card">
           <h3>Vendor Interest Form</h3>
           <p class="form-lead">Interested in setting up at the block party? Fill out the form below and our team will follow up with details and pricing.</p>
 
-          <!-- === UPDATE: REPLACE WITH YOUR VENDOR APPLICATION LINK OR BACKEND === -->
+          [UPDATE: REPLACE WITH YOUR VENDOR APPLICATION LINK OR BACKEND]
           <div class="form-row">
             <div class="form-group">
               <label for="vend-fname">First Name *</label>
@@ -909,6 +1042,7 @@
           <p class="form-note">Submitting this form does not guarantee acceptance. Vendors will be selected based on availability and fit. We'll follow up with availability, fees, and next steps. Space is limited!</p>
         </div>
       </div>
+      -->
 
     </div>
   </div>
@@ -943,7 +1077,7 @@
             <div class="contact-card-icon gold">📍</div>
             <div class="contact-card-info">
               <h4>Event Location</h4>
-              <p>Location — Flossmoor, IL. Check our Instagram for updates!</p>
+              <p>Flossmoor South Commuter Lot, 2616 Sterling Ave, Flossmoor, IL 60422</p>
             </div>
           </div>
           <!-- Instagram -->
@@ -1029,6 +1163,7 @@
       <div class="footer-col">
         <h4>Navigate</h4>
         <ul>
+          <li><a href="#event-details">Event Info</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#parade">Parade Sign-Up</a></li>
           <li><a href="#volunteer">Volunteer</a></li>
@@ -1050,7 +1185,7 @@
             📅 Friday, June 19, 2026<br/>
             🎺 Parade 10–11 AM<br/>
             🎉 Block Party 11 AM–2 PM<br/>
-            📍 Location — Flossmoor, IL
+            📍 Flossmoor South Commuter Lot, 2616 Sterling Ave, Flossmoor, IL 60422
           </p>
         </div>
       </div>
